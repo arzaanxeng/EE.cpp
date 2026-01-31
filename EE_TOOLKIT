@@ -1,0 +1,153 @@
+
+//  main.cpp
+
+//  A SIMPLER EE CALCULATOR FOR CALCULATION REGARDING CAPACITOR , RESISTOR AND POWER.
+
+//  Created by ARZAAN
+
+
+#include <iostream>
+using namespace std;
+
+float ohms_law(){
+    float v , i , r;
+    char x;
+    cout<<"WHAT QUANTITY WOULD U LIKE TO FIND OUT ?(USE R FOR RESISTANCE , V FOR VOLTAGE , I FOR CURRENT) : "<<endl;
+    cin>>x;
+    switch(x){
+        case'R':
+            cout<<"ENTER THE VALUE OF V and I : "<<endl;
+            cin>>v>>i;
+            r = v/i ;
+            cout<<"THE VALUE OF RESISTANCE IS : "<<r<<endl;
+            break;
+            
+        case'V':
+            cout<<"ENTER THE VALUE OF R and I : "<<endl;
+            cin>>r>>i;
+            v = i*r ;
+            cout<<"THE VALUE OF VOLTAGE IS : "<<v<<endl;
+            break;
+            
+        case'I':
+            cout<<"ENTER THE VALUE OF V and R : "<<endl;
+            cin>>v>>r;
+            i = v/r ;
+            cout<<"THE VALUE OF CURRENT IS : "<<i<<endl;
+            break;
+            
+        default:
+            cout<<"PLEASE , ENTER THE VALID CHARACTER!!! "<<endl;
+            break;
+    }
+    return 0;
+}
+
+float capacitor_relation(){
+    float q , c , v;
+    char x;
+    cout<<"WHAT QUANTITY WOULD U LIKE TO FIND OUT ?(USE Q FOR CHARGE , C FOR CAPACITANCE , V FOR VOLTAGE) : "<<endl;
+    cin>>x;
+    switch(x){
+        case'Q':
+            cout<<"ENTER THE VALUE OF V and C : "<<endl;
+            cin>>v>>c;
+            q = c*v ;
+            cout<<"THE VALUE OF CHARGE IS : "<<q<<endl;
+            break;
+            
+        case'V':
+            cout<<"ENTER THE VALUE OF Q and C : "<<endl;
+            cin>>q>>c;
+            v = q/c;
+            cout<<"THE VALUE OF VOLTAGE IS : "<<v<<endl;
+            break;
+            
+        case'C':
+            cout<<"ENTER THE VALUE OF V and Q : "<<endl;
+            cin>>v>>q;
+            c = q/v ;
+            cout<<"THE VALUE OF CAPACITANCE IS : "<<c<<endl;
+            break;
+            
+        default:
+            cout<<"PLEASE , ENTER THE VALID CHARACTER!!! "<<endl;
+            break;
+    }
+    return 0;
+}
+
+float power_law(){
+    float v , i , p;
+    char x;
+    cout<<"WHAT QUANTITY WOULD U LIKE TO FIND OUT ?(USE P FOR POWER , V FOR VOLTAGE , I FOR CURRENT) : "<<endl;
+    cin>>x;
+    switch(x){
+        case'P':
+            cout<<"ENTER THE VALUE OF V and I : "<<endl;
+            cin>>v>>i;
+            p = v/i ;
+            cout<<"THE VALUE OF POWER IS : "<<p<<endl;
+            break;
+            
+        case'V':
+            cout<<"ENTER THE VALUE OF P and I : "<<endl;
+            cin>>p>>i;
+            v = i*p ;
+            cout<<"THE VALUE OF VOLTAGE IS : "<<v<<endl;
+            break;
+            
+        case'I':
+            cout<<"ENTER THE VALUE OF V and P : "<<endl;
+            cin>>v>>p;
+            i = v/p ;
+            cout<<"THE VALUE OF CURRENT IS : "<<i<<endl;
+            break;
+            
+        default:
+            cout<<"PLEASE , ENTER THE VALID CHARACTER!!! "<<endl;
+            break;
+    }
+    return 0;
+}
+
+int main(void){
+    char userChoice;
+        bool keepRunning = true;
+
+        cout << "+++ WELCOME TO THE EE TOOLKIT +++" << endl;
+
+        while (keepRunning) {
+            int menuSelection;
+            cout << "\nMAIN MENU:" << endl;
+            cout << "1. Ohm's Law (V, I, R)" << endl;
+            cout << "2. Power Calculation (P, V, I)" << endl;
+            cout << "3. Capacitor Calculation (Q, V, C)" << endl;
+            cout << "4. Exit" << endl;
+            cout << "Select an option: ";
+            cin >> menuSelection;
+
+            if (menuSelection == 1) {
+                ohms_law();
+            } else if (menuSelection == 2) {
+                power_law();
+            } else if (menuSelection == 3) {
+                capacitor_relation();
+            } else if(menuSelection == 4){
+                break;
+            }
+            else {
+                cout << "Invalid selection!" << endl;
+            }
+
+            
+            cout << "\nWould you like to perform another calculation? (y/n): ";
+            cin >> userChoice;
+
+            if (userChoice == 'n' || userChoice == 'N') {
+                keepRunning = false;
+                cout << "Exiting toolkit. Have a productive day!" << endl;
+            }
+        }
+    return 0;
+}
